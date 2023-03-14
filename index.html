@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ProjCalc</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #000;
+            color: #fff;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 1.5rem;
+        }
+
+        #calculatrice {
+            width: 300px;
+            margin: 50px auto;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 0 10px #000;
+        }
+
+        #affichage {
+            width: 100%;
+            height: 100px;
+            background-color: #000;
+            border-radius: 10px 10px 0 0;
+            text-align: right;
+            padding: 10px;
+        }
+
+        #resultat {
+            width: 100%;
+            height: 100%;
+            background-color: #000;
+            color: #fff;
+            border: none;
+            text-align: right;
+            font-size: 2rem;
+            padding: 10px;
+        }
+
+        #boutons {
+            width: 100%;
+            height: 100%;
+            background-color: #fff;
+            border-radius: 0 0 10px 10px;
+            padding: 10px;
+        }
+
+        .ligne {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+        }
+
+        .chiffre, .operateur, .egal, .effacer {
+            width: 25%;
+            height: 100%;
+            background-color: #000;
+            color: #fff;
+            border: none;
+            border-radius: 10px;
+            font-size: 2rem;
+            cursor: pointer;
+        }
+
+        .chiffre:hover, .operateur:hover, .egal:hover, .effacer:hover {
+            background-color: #fff;
+            color: #000;
+        }
+
+        .egal {
+            background-color: #f00;
+        }
+
+        .egal:hover {
+            background-color: #fff;
+            color: #f00;
+        }
+
+        .effacer {
+            background-color: #00f;
+        }
+
+        .effacer:hover {
+            background-color: #fff;
+            color: #00f;
+        }
+
+        .retour {
+            width: 50%;
+            height: 100%;
+            background-color: #00f;
+            color: #fff;
+            border: none;
+            border-radius: 10px;
+            font-size: 2rem;
+            cursor: pointer;
+        }
+
+
+    </style>
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <!-- A calculatrice -->
+    <div id="calculatrice">
+        <div id="affichage">
+            <input type="text" id="resultat" value="" disabled>
+        </div>
+        <div id="boutons">
+            <div class="ligne">
+                <input type="button" class="chiffre" value="7">
+                <input type="button" class="chiffre" value="8">
+                <input type="button" class="chiffre" value="9">
+                <input type="button" class="operateur" value="/">
+            </div>
+            <div class="ligne">
+                <input type="button" class="chiffre" value="4">
+                <input type="button" class="chiffre" value="5">
+                <input type="button" class="chiffre" value="6">
+                <input type="button" class="operateur" value="*">
+            </div>
+            <div class="ligne">
+                <input type="button" class="chiffre" value="1">
+                <input type="button" class="chiffre" value="2">
+                <input type="button" class="chiffre" value="3">
+                <input type="button" class="operateur" value="-">
+            </div>
+            <div class="ligne">
+                <input type="button" class="chiffre" value="0">
+                <input type="button" class="chiffre" value=".">
+                <input type="button" class="egal" value="=">
+                <input type="button" class="operateur" value="+">
+            </div>
+            <div class="ligne">
+                <input type="button" class="effacer" value="C">
+                <input type="button" class="retour" value="&larr;">
+            </div>
+        </div>
+    </div>
+</body>
+</html>
