@@ -1,0 +1,121 @@
+/* Retro-style calculator */
+#calculatrice {
+    display: inline-block;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 4vw; /* relative to viewport width */
+    background-color: #ffa07a;
+    border-radius: 2vw; /* relative to viewport width */
+    box-shadow: 0.5vw 0.5vw 1.5vw rgba(0, 0, 0, 0.3); /* relative to viewport width */
+    padding: 4vw; /* relative to viewport width */
+    width: 80vw; /* relative to viewport width */
+    max-width: 500px; /* limit maximum width */
+  }
+  
+  /* Calculator display */
+  #affichage {
+    background-color: #fff;
+    border-radius: 1vw; /* relative to viewport width */
+    box-shadow: inset 0.5vw 0.5vw 1.5vw rgba(0, 0, 0, 0.2); /* relative to viewport width */
+    padding: 2vw; /* relative to viewport width */
+    margin-bottom: 2vw; /* relative to viewport width */
+  }
+  
+  #calcule, #resultat {
+    border: none;
+    background-color: #fff;
+    font-size: 6vw; /* relative to viewport width */
+    text-align: right;
+    width: 100%;
+    padding: 1vw; /* relative to viewport width */
+    box-sizing: border-box;
+  }
+  
+  #calcule {
+    font-size: 4vw; /* relative to viewport width */
+    color: #888;
+  }
+  
+  /* Calculator buttons */
+  #boutons {
+    display: flex;
+    flex-direction: column;
+    gap: 2vw; /* relative to viewport width */
+  }
+  
+  .ligne {
+    display: flex;
+    gap: 2vw; /* relative to viewport width */
+  }
+  
+  button {
+    font-size: 4vw; /* relative to viewport width */
+    color: #fff;
+    background-color: #808080;
+    border: none;
+    border-radius: 1vw; /* relative to viewport width */
+    padding: 2vw; /* relative to viewport width */
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    flex: 1; /* distribute remaining space equally */
+  }
+  
+  button:hover {
+    background-color: #666;
+  }
+  
+  button:active {
+    background-color: #333;
+  }
+  
+  /* Operator buttons */
+  .operateur {
+    background-color: #ff8c00;
+  }
+  
+  .operateur:hover {
+    background-color: #ffa500;
+  }
+  
+  .operateur:active {
+    background-color: #ff4500;
+  }
+  
+  /* Equals button */
+  .egal {
+    background-color: #008000;
+  }
+  
+  .egal:hover {
+    background-color: #006400;
+  }
+  
+  .egal:active {
+    background-color: #004d00;
+  }
+  
+  /* Clear buttons */
+  .effacer {
+    background-color: #dc143c;
+  }
+  
+  .effacer:hover {
+    background-color: #b22222;
+  }
+  
+  .effacer:active {
+    background-color: #8b0000;
+  }
+  
+  /* Delete button */
+  .retour {
+    background-color: #4b0082;
+  }
+  
+  .retour:hover {
+    background-color: #3c007f;
+  }
+  
+  .retour:active {
+    background-color: #2a004e;
+  }
+  

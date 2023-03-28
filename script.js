@@ -1,37 +1,101 @@
-const affichage = document.getElementById('resultat');
-const chiffres = document.querySelectorAll('.chiffre');
-const operateurs = document.querySelectorAll('.operateur');
-const egal = document.querySelector('.egal');
-const effacer = document.querySelector('.effacer');
-const retour = document.querySelector('.retour');
+class Calculator {
 
-// Ajouter un événement à chaque bouton chiffre
-chiffres.forEach(chiffre => {
-    chiffre.addEventListener('click', () => {
-        console.log(chiffre.value);
-        affichage.value += chiffre.value;
-    });
-});
+    calcule = ''
+    resultat = ''
+    previousCalcule = ''
 
-// Ajouter un événement à chaque bouton opérateur
-operateurs.forEach(operateur => {
-    operateur.addEventListener('click', () => {
-        affichage.value += operateur.value;
-    });
-});
+    constructor(calculeTextElement, resultatTextElement) {
+        this.calculeTextElement = calculeTextElement
+        this.resultatTextElement = resultatTextElement
+        this.clear()
+    }
 
-// Ajouter un événement au bouton égal
-egal.addEventListener('click', () => {
-    // use a max of 2 decimal places
-    affichage.value = eval(affichage.value).toFixed(2);
-});
+    clear() {
+        this.previousCalcule = this.calcule
+        this.calcule = ''
+        this.resultat = ''
+    }
 
-// Ajouter un événement au bouton effacer
-effacer.addEventListener('click', () => {
-    affichage.value = '';
-});
+    delete() {
+        // if there is no calcule, get the last calcule
+        if (this.calcule === '') {
+            this.calcule = this.previousCalcule
+            return
+        }
+        this.calcule = this.calcule.toString().slice(0, -1)
+    }
 
-// Ajouter un événement au bouton retour
-retour.addEventListener('click', () => {
-    affichage.value = affichage.value.slice(0, -1);
-});
+    appendNumber(number) {
+        this.calcule = this.calcule.toString() + number.toString()
+    }
+
+    chooseOperation(operation) {
+        if (this.calcule === '') {
+            if (this.resultat === '') return
+            this.calcule = this.resultat
+        }
+        this.calcule = this.calcule.toString() + operation.toString()
+    }
+
+    compute() {
+        let resultat
+        try {
+            resultat = eval(this.calcule.replace('x', '*').replace('÷', '/'))
+        }
+        catch (error) {
+            resultat = 'Err'
+            console.log(error);
+        }
+        this.resultat = resultat.toFixed(2)
+        this.previousCalcule = this.calcule
+        this.calcule = ''
+    }
+
+    updateDisplay() {
+        this.calculeTextElement.value = this.calcule
+        this.resultatTextElement.value = this.resultat
+    }
+}
+
+// get the buttons and the display
+const numberButtons = document.querySelectorAll('[data-number]')
+const operationButtons = document.querySelectorAll('[data-operation]')
+const equalsButton = document.querySelector('[data-equals]')
+const deleteButton = document.querySelector('[data-delete]')
+const allClearButton = document.querySelector('[data-all-clear]')
+const calculeTextElement = document.querySelector('[data-calcule]')
+const resultatTextElement = document.querySelector('[data-resultat]')
+// create a new calculator
+const calculator = new Calculator(calculeTextElement, resultatTextElement)
+
+// add event listeners to the buttons
+numberButtons.forEach(button => {
+    button.addEventListener('click', () => {
+        calculator.appendNumber(button.attributes['data-number'].value)
+        calculator.updateDisplay()
+    })
+})
+
+operationButtons.forEach(button => {
+    button.addEventListener('click', () => {
+        calculator.chooseOperation(button.attributes['data-operation'].value)
+        calculator.updateDisplay()
+    })
+})
+
+equalsButton.addEventListener('click', button => {
+    calculator.compute()
+    calculator.updateDisplay()
+})
+
+allClearButton.addEventListener('click', button => {
+    calculator.clear()
+    calculator.updateDisplay()
+})
+
+deleteButton.addEventListener('click', button => {
+    calculator.delete()
+    calculator.updateDisplay()
+})
+
+
