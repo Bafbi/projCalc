@@ -7,7 +7,6 @@ class Calculator {
     constructor(calculeTextElement, resultatTextElement) {
         this.calculeTextElement = calculeTextElement
         this.resultatTextElement = resultatTextElement
-        this.clear()
     }
 
     clear() {
