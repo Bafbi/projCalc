@@ -2,7 +2,6 @@
 #calculatrice {
     display: inline-block;
     font-family: 'Courier New', Courier, monospace;
-    font-size: 4vw; /* relative to viewport width */
     background-color: #ffa07a;
     border-radius: 2vw; /* relative to viewport width */
     box-shadow: 0.5vw 0.5vw 1.5vw rgba(0, 0, 0, 0.3); /* relative to viewport width */

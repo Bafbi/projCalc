@@ -14,12 +14,20 @@ export class AppController {
   postTime(
     @Body('calcule') calcule: string,
     @Body('time') time: number,
-  ): number {
+  ): [number, number] {
+    console.log(`POST /time ${calcule} ${time}`);
     return this.appService.postTime(calcule, time);
   }
 
   @Get('/time')
   getTime(@Query('calcule') calcule: string): number[] {
+    console.log(`GET /time ${calcule}`);
     return this.appService.getTime(calcule);
+  }
+
+  @Post('/error')
+  postError(): [number, number] {
+    console.log(`POST /error`);
+    return this.appService.postError();
   }
 }
