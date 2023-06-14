@@ -1,5 +1,8 @@
 # ProjCalc
 
-## Avis sur mon code
+Ce projet à été réalisé pour un tp de développement web, durant ma seconde année d'école d'ingénieur.
 
-Je trouve la façon dont est implementé le code plutot propre et facilement comprehensible.
+## Techno
+
+Front : js natif
+Back : nestjs
